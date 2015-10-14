@@ -6,6 +6,13 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <%- description %>
+    <h2><%= description %></h2>
+    <% for(var i=0; i<max; i++) { %>
+      <h3><%= itens[i].title %></h3>
+      <%- itens[i].description %>
+      <br />
+      <hr />
+      <br />
+    <% } %>
   </body>
 </html>

@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/fetch', function(req, res, next) {
     var itens = [];
+    var meta = {};
     var url = req.body.url;
     var outRequest = request(url);
     var feedparser = new FeedParser();
@@ -32,15 +33,22 @@ router.post('/fetch', function(req, res, next) {
 
     feedparser.on('readable', function() {
         // This is where the action is!
-        var stream = this
-        , meta = this.meta // **NOTE** the "meta" is always available in the context of the feedparser instance
-        , item;
+        var stream = this;
+        meta = this.meta // **NOTE** the "meta" is always available in the context of the feedparser instance
+        var item;
 
         while (item = stream.read()) {
             itens.push(item);
         }
+    });
 
-        res.render('fetch', {title: itens[0].title, description: itens[0].description});
+    feedparser.on('end', function() {
+        var max = itens.length;
+        if (itens.length > 10) {
+            max = 10;
+        }
+        console.log(itens.length);
+        res.render('fetch', {title: meta.title, description: meta.description, itens: itens, max: max});
     });
 });
 
