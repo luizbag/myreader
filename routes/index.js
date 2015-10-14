@@ -43,8 +43,12 @@ router.post('/fetch', function(req, res, next) {
     });
 
     feedparser.on('end', function() {
+        var max = itens.length;
+        if (itens.length > 10) {
+            max = 10;
+        }
         console.log(itens.length);
-        res.render('fetch', {title: meta.title, description: meta.description, itens: itens});
+        res.render('fetch', {title: meta.title, description: meta.description, itens: itens, max: max});
     });
 });
 
