@@ -5,7 +5,7 @@ var request = require('request');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Feed Reader' });
+  res.render('index', { title: 'Feedr' });
 });
 
 router.post('/fetch', function(req, res, next) {
