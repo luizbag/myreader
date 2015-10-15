@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='app'>
   <head>
     <title>Feedr</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,47 +8,6 @@
     <link rel='stylesheet' href='/css/style.css' />
   </head>
   <body>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo center">Feedr</a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="left hide-on-med-and-down">
-          <li class="active"><a href="sass.html">Feeds</a></li>
-          <li><a href="badges.html">Components</a></li>
-          <li><a href="collapsible.html">Javascript</a></li>
-          <li><a href="mobile.html">Mobile</a></li>
-        </ul>
-        <ul class="side-nav" id="mobile-demo">
-          <li class="active"><a href="sass.html">Feeds</a></li>
-          <li><a href="badges.html">Components</a></li>
-          <li><a href="collapsible.html">Javascript</a></li>
-          <li><a href="mobile.html">Mobile</a></li>
-        </ul>
-      </div>
-    </nav>
-    <div class="row">
-      <div class="col l3">
-        <ul class="collection with-header">
-        <li class="collection-header"><h4>Feeds</h4></li>
-        <li class="collection-item"><a href="#">NerdCast</a></li>
-        <li class="collection-item"><a href="#">Soronerds</a></li>
-        <li class="collection-item"><a href="#">Labirinto da Mente</a></li>
-        <li class="collection-item"><a href="#">Luizbag</a></li>
-      </ul>
-      </div>
-      <div class="col l9">
-        <div class="row">
-          <div class="col l12">
-          </div>
-        </div>
-      </div>
-    </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-    <script>
-    $(document).ready(function() {
-    $('.button-collapse').sideNav();
-    });
-    </script>
+    <div ui-view></div>
   </body>
 </html>
