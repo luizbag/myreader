@@ -1,9 +1,9 @@
 var express = require('express');
-var router = express.Router();
 var jwt = require('jsonwebtoken');
 var config = require('../config');
 var mongoose = require('mongoose');
 var User = require('../models/User.js');
+var router = express.Router();
 
 router.post('/sign_in', function(req, res, next) {
   User.findOne({"email": req.body.email}, function(err, user) {
