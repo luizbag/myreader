@@ -5,7 +5,11 @@ var request = require('request');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Feedr' });
+    res.render('index', { title: 'Feedr' });
+});
+
+router.get('/test', function(req, res, next) {
+    res.render('index', { title: 'Feedr' });
 });
 
 router.post('/fetch', function(req, res, next) {
@@ -29,6 +33,8 @@ router.post('/fetch', function(req, res, next) {
 
     feedparser.on('error', function(error) {
         // always handle errors
+        console.log(error);
+        res.render('fetch', {error: error});
     });
 
     feedparser.on('readable', function() {
@@ -48,7 +54,7 @@ router.post('/fetch', function(req, res, next) {
             max = 10;
         }
         console.log(itens.length);
-        res.render('fetch', {title: meta.title, description: meta.description, itens: itens, max: max});
+        res.render('fetch', {title: meta.title, meta: meta, itens: itens});
     });
 });
 

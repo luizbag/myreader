@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title><% if(typeof title != 'undefined') {%> <%= title %> <% } %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <h2><%= description %></h2>
-    <% for(var i=0; i<max; i++) { %>
-      <h3><%= itens[i].title %></h3>
-      <%- itens[i].description %>
-      <br />
-      <hr />
-      <br />
+    <% if(typeof error != 'undefined') {%>
+    <%= error %>
+    <% } %>
+    <% if(typeof meta != 'undefined' && typeof itens != 'undefined') {%>
+    <h1>META</h1>
+      <%- JSON.stringify(meta) %>
+    <h2>Itens</h2>
+      <%- JSON.stringify(itens) %>
     <% } %>
   </body>
 </html>

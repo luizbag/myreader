@@ -57,8 +57,8 @@ app.use(function(req, res, next) {
   }
 });
 
-app.get('/test', function(req, res, next) {
-  res.send('Sucesso');
+app.get('/ping', function(req, res, next) {
+  res.send('pong');
 });
 
 // catch 404 and forward to error handler
