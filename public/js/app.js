@@ -1,7 +1,7 @@
 angular.module('app', ['app.controllers', 'app.services', 'ui.router'])
   .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise("/home/landing");
 
     $stateProvider
       .state('home', {
@@ -11,7 +11,14 @@ angular.module('app', ['app.controllers', 'app.services', 'ui.router'])
           requireLogin: false
         }
       })
-      .state('entrar', {
+      .state('home.landing', {
+        url: "/landing", 
+        templateUrl: "/html/landing.html",
+        data: {
+          requireLogin: false
+        }
+      })
+      .state('home.entrar', {
         url: "/entrar",
         templateUrl: "/html/entrar.html",
         controller: 'UserController',
@@ -19,7 +26,7 @@ angular.module('app', ['app.controllers', 'app.services', 'ui.router'])
           requireLogin: false
         }
       })
-      .state('cadastrar', {
+      .state('home.cadastrar', {
         url: "/cadastrar",
         templateUrl: "/html/cadastrar.html",
         controller: 'UserController',

@@ -1,5 +1,10 @@
 <nav>
     <div class="nav-wrapper teal">
-        <a href="/" class="brand-logo">FeedReader</a>
+        <a ui-sref="home.landing" class="brand-logo">FeedReader</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a ui-sref="home.entrar">Entrar</a></li>
+        <li><a ui-sref="home.cadastrar">Cadastrar</a></li>
+      </ul>
     </div>
 </nav>
+<div ui-view></div>
