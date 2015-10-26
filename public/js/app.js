@@ -37,6 +37,7 @@ angular.module('app', ['app.controllers', 'app.services', 'ui.router'])
       .state('painel', {
         url: "/painel",
         templateUrl: "/html/painel.html",
+        controller: 'UserController',
         data: {
           requireLogin: false
         }

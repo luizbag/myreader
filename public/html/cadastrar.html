@@ -20,8 +20,17 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="check_password" type="password" class="validate" ng-model="check_password">
-                    <label for="check_password">Password Confirmation</label>
+                    <input id="confirmation" type="password" class="validate" ng-model="confirmation" ng-change="validate_password(password, confirmation)">
+                    <label for="confirmation" data-error="Passwords don't match">Password Confirmation</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <center>
+                    <button class="btn waves-effect waves-light z-depth-2" type="submit" name="action" ng-click="sign_up(email, password)">Sign Up
+                    <i class="material-icons right">send</i>
+                    </button>
+                    </center>
                 </div>
             </div>
         </form>

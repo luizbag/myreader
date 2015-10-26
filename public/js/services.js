@@ -35,7 +35,7 @@ angular.module('app.services', ['ngResource'])
     }
   })
   .service('UserService', ['$http', function($http) {
-    this.login = function(email, password, callback) {
+    this.sign_in = function(email, password, callback) {
       $http.post('/users/sign_in', {"email": email, "password": password}).
         success(function(data, status, headers, config) {
           callback(data);
@@ -46,7 +46,7 @@ angular.module('app.services', ['ngResource'])
         });
     };
 
-    this.register = function(email, password, callback) {
+    this.sign_up = function(email, password, callback) {
       $http.post('/users/sign_up', {"email": email, "password": password}).
         success(function(data, status, headers, config) {
           callback(data);
