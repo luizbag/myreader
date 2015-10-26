@@ -31,12 +31,12 @@ angular.module('app.controllers', ['angular-md5', 'app.services'])
     $scope.validate_password = function(password, confirmation) {
       if(password !== confirmation) {
         $scope.valid = false;
-        $('#confirmation').removeClass('valid');
-        $('#confirmation').addClass('invalid');
+        $('#confirmation').removeClass('valid ng-valid');
+        $('#confirmation').addClass('invalid ng-invalid');
       } else {
         $scope.valid = true;
-        $('#confirmation').removeClass('invalid');
-        $('#confirmation').addClass('valid');
+        $('#confirmation').removeClass('invalid ng-invalid');
+        $('#confirmation').addClass('valid ng-valid');
       }
     }
 
