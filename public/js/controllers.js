@@ -4,14 +4,16 @@ angular.module('app.controllers', ['angular-md5', 'app.services'])
     $scope.valid=false;
 
     $scope.sign_in = function(email, password) {
-      UserService.sign_in(email, password, function(token) {
-        if(token !== 'Unauthorized') {
-          AuthToken.setToken(token);
-          $state.go("painel");
-        } else {
-          Materialize.toast('Unauthorized', 3000, 'rounded');
-        }
-      });
+      if($scope.valid) {
+        UserService.sign_in(email, password, function(token) {
+          if(token !== 'Unauthorized') {
+            AuthToken.setToken(token);
+            $state.go("painel");
+          } else {
+            Materialize.toast('Unauthorized', 3000, 'rounded');
+          }
+        });
+      }
     };
 
     $scope.sign_up = function(email, password) {
@@ -24,8 +26,31 @@ angular.module('app.controllers', ['angular-md5', 'app.services'])
       }
     };
 
-    $scope.email_hash = function(email) {
+    $scope.email_hash = function(email, is_sign_up) {
       $scope.hash = md5.createHash($scope.email || '');
+      UserService.check_email(email, function(exists) {
+        if(is_sign_up) {
+          if(exists) {
+            $('#email').removeClass('valid ng-valid');
+            $('#email').addClass('invalid ng-invalid');
+            $scope.valid = false;
+          } else {
+            $('#email').removeClass('invalid ng-invalid');
+            $('#email').addClass('valid ng-valid');
+            $scope.valid = true;
+          }
+        } else {
+          if(exists) {
+            $('#email').removeClass('invalid ng-invalid');
+            $('#email').addClass('valid ng-valid');
+            $scope.valid = true;
+          } else {
+            $('#email').removeClass('valid ng-valid');
+            $('#email').addClass('invalid ng-invalid');
+            $scope.valid = false;
+          }
+        }
+      });
     };
 
     $scope.validate_password = function(password, confirmation) {

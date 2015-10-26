@@ -8,13 +8,13 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" type="email" class="validate z-depth-2" ng-model="email" ng-change="email_hash(email)">
-                    <label for="email">Email</label>
+                    <input id="email" type="email" class="valid z-depth-2" ng-model="email" ng-change="email_hash(email, false)">
+                    <label for="email" data-error="Email doesn't exist" style="width:100%">Email</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="password" type="password" class="validate z-depth-2" ng-model="password">
+                    <input id="password" type="password" class="valid z-depth-2" ng-model="password">
                     <label for="password">Password</label>
                 </div>
             </div>

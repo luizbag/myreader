@@ -31,4 +31,15 @@ router.post('/sign_up', function(req, res, next) {
   });
 });
 
+router.get('/:email', function(req, res, next) {
+  var exists = false;
+  User.findOne({"email": req.params.email}, function(err, user) {
+    if(err) res.json(exists);
+    if(user) {
+      exists = true;
+    }
+    res.json(exists);
+  });
+});
+
 module.exports = router;
