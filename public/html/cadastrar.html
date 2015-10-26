@@ -1,1 +1,29 @@
-<h1>Cadastrar</h1>
+<div class="container">
+    <div class="row" style="padding-top:10px;">
+        <form class="col s6 offset-s3">
+            <div class="row">
+                <div class="col s8 offset-s3">
+                    <img src="https://www.gravatar.com/avatar/{{hash}}?s=200&d=mm" alt="" class="circle responsive-img">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="email" class="validate" ng-model="email" ng-change="email_hash(email)">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" type="password" class="validate" ng-model="password">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="check_password" type="password" class="validate" ng-model="check_password">
+                    <label for="check_password">Password Confirmation</label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

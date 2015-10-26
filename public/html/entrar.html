@@ -1,21 +1,30 @@
-<div class="container">
+<div class="container" ng-init="hash=0">
     <div class="row" style="padding-top:10px;">
         <form class="col s6 offset-s3">
             <div class="row">
-                <div class="col s2 offset-s5">
-                    <img src="https://www.gravatar.com/avatar/0?s=200&d=mm" alt="" class="circle responsive-img">
+                <div class="col s8 offset-s3">
+                    <img src="https://www.gravatar.com/avatar/{{hash}}?s=200&d=mm" alt="" class="circle responsive-img z-depth-2">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
+                    <input id="email" type="email" class="validate z-depth-2" ng-model="email" ng-change="email_hash(email)">
                     <label for="email">Email</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="password" type="password" class="validate">
+                    <input id="password" type="password" class="validate z-depth-2" ng-model="password">
                     <label for="password">Password</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <center>
+                    <button class="btn waves-effect waves-light z-depth-2" type="submit" name="action" ng-click="login(email, password)">Entrar
+                    <i class="material-icons right">send</i>
+                    </button>
+                    </center>
                 </div>
             </div>
         </form>
