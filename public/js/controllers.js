@@ -17,7 +17,7 @@ angular.module('app.controllers', ['angular-md5', 'app.services'])
     $scope.sign_up = function(email, password) {
       if($scope.valid) {
         UserService.sign_up(email, password, function(user) {
-          $state.go("entrar");
+          $state.go("home.entrar");
         });
       } else {
         console.log('invalid');
