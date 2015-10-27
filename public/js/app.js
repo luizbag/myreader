@@ -49,7 +49,7 @@ angular.module('app', ['app.controllers', 'app.services', 'ui.router'])
       var requireLogin = toState.data.requireLogin;
       if(requireLogin && !AuthToken.isAuthenticated()) {
         event.preventDefault();
-        $state.go('entrar');
+        $state.go('home.entrar');
       }
     });
   });

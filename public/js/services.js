@@ -57,7 +57,7 @@ angular.module('app.services', ['ngResource'])
   };
 
   this.check_email = function(email, callback) {
-    $http.get('/users/' + email).
+    $http.get('/users/email/' + email).
     success(function(data, status, headers, config) {
       callback(data);
     });

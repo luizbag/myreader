@@ -67,6 +67,6 @@ angular.module('app.controllers', ['angular-md5', 'app.services'])
 
     $scope.sign_out = function() {
       AuthToken.removeToken();
-      $state.go("home");
+      $state.go("home.landing");
     };
   }]);
