@@ -39,7 +39,7 @@ angular.module('app', ['app.controllers', 'app.services', 'ui.router'])
         templateUrl: "/html/painel.html",
         controller: 'UserController',
         data: {
-          requireLogin: false
+          requireLogin: true
         }
       });
       $httpProvider.interceptors.push('AuthInterceptor');
