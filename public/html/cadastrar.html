@@ -8,7 +8,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" type="email" class="valid" ng-model="email" ng-change="email_hash(email, true)">
+                    <input id="email" type="email" class="valid" ng-model="email" ng-blur="email_hash(email, true)">
                     <label for="email" data-error="Email already exists" style="width: 100%">Email</label>
                 </div>
             </div>
@@ -20,7 +20,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="confirmation" type="password" class="valid" ng-model="confirmation" ng-change="validate_password(password, confirmation)">
+                    <input id="confirmation" type="password" class="valid" ng-model="confirmation" ng-blur="validate_password(password, confirmation)">
                     <label for="confirmation" data-error="Passwords don't match" style="width: 100%">Password Confirmation</label>
                 </div>
             </div>

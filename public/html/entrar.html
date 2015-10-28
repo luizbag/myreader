@@ -8,7 +8,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" type="email" class="valid z-depth-2" ng-model="email" ng-change="email_hash(email, false)">
+                    <input id="email" type="email" class="valid z-depth-2" ng-model="email" ng-blur="email_hash(email, false)">
                     <label for="email" data-error="Email doesn't exist" style="width:100%">Email</label>
                 </div>
             </div>
