@@ -1,0 +1,29 @@
+{
+  "name": "myreader",
+  "version": "0.0.1",
+  "homepage": "https://github.com/luizbag/myreader",
+  "authors": [
+    "Luiz Gavioli <luizbag@gmail.com>"
+  ],
+  "description": "feed reader",
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "Materialize": "materialize#~0.97.1",
+    "angular": "~1.4.7",
+    "angular-resource": "~1.4.7",
+    "angular-ui-router": "~0.2.15",
+    "angular-md5": "~0.1.8"
+  }
+}
