@@ -69,4 +69,10 @@ angular.module('app.controllers', ['angular-md5', 'app.services'])
       AuthToken.removeToken();
       $state.go("home.landing");
     };
+  }])
+  .controller('FeedController', ['$scope', '$state', function($scope, $state) {
+    $scope.add_feed = function() {
+      console.log($scope.url);
+      $scope.url = '';
+    };
   }]);

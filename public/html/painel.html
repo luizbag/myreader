@@ -7,10 +7,12 @@
   </div>
 </nav>
 <div ui-view></div>
-<div class="container">
-  <div class="row" style="padding-top:10px;">
-    <h1>Welcome to FeedReader!</h1>
-    <p>You have signed up to an amazing treat. It's not ready yet, but soon it will be!</p>
-    <p>Soon you'll hear from us...</p>
+<div class="row" style="padding-top:10px;" ng-controller="FeedController">
+  <div class="col s3">
+    <form ng-submit="add_feed()">
+      <input type="text" ng-model="url" id="url" name="url" placeholder="URL" />
+    </form>
+  </div>
+  <div class="col s9">
   </div>
 </div>
