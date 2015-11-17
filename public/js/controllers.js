@@ -70,9 +70,12 @@ angular.module('app.controllers', ['angular-md5', 'app.services'])
       $state.go("home.landing");
     };
   }])
-  .controller('FeedController', ['$scope', '$state', function($scope, $state) {
+  .controller('FeedController', ['Feed', 'FeedService', '$scope', '$state', function(Feed, FeedService, $scope, $state) {
+    $scope.feeds = Feed.query();
     $scope.add_feed = function() {
-      console.log($scope.url);
+      FeedService.add_feed($scope.url, function(data) {
+        $scope.feeds = Feed.query();
+      });
       $scope.url = '';
     };
   }]);

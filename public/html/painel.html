@@ -12,6 +12,10 @@
     <form ng-submit="add_feed()">
       <input type="text" ng-model="url" id="url" name="url" placeholder="URL" />
     </form>
+    
+    <div class="collection">
+      <a href="#!" class="collection-item" ng-repeat="feed in feeds">{{feed.title}}<span class="new badge">{{feed.entries.length}}</span></a>
+    </div>
   </div>
   <div class="col s9">
   </div>

@@ -5,9 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var jwt = require('jsonwebtoken');
 
 var config = require('./config');
+var authenticate = require('./authenticate');
 
 var mongo_uri = config.database;
 mongoose.connect(mongo_uri, function(err) {
@@ -22,6 +22,7 @@ var secret = config.secret;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var feeds = require('./routes/feeds');
 
 var app = express();
 
@@ -42,21 +43,9 @@ app.use('/', routes);
 app.use('/users', users);
 
 // Authentication
-app.use(function(req, res, next) {
-  var token = req.headers.authorization;
-  if(token) {
-    jwt.verify(token, config.secret, function(err, decoded) {
-      if(err) {
-        return res.sendStatus(401);
-      } else {
-        req.user = decoded;
-        next();
-      }
-    });
-  } else {
-    return res.sendStatus(401);
-  }
-});
+app.use(authenticate);
+
+app.use('/feeds', feeds);
 
 app.get('/ping', function(req, res, next) {
   res.send('pong');
@@ -92,6 +81,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;
