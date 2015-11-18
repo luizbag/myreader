@@ -24,6 +24,7 @@
     "angular": "~1.4.7",
     "angular-resource": "~1.4.7",
     "angular-ui-router": "~0.2.15",
-    "angular-md5": "~0.1.8"
+    "angular-md5": "~0.1.8",
+    "angular-sanitize": "~1.4.7"
   }
 }

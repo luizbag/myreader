@@ -6,7 +6,6 @@
     </ul>
   </div>
 </nav>
-<div ui-view></div>
 <div class="row" style="padding-top:10px;" ng-controller="FeedController">
   <div class="col s3">
     <form ng-submit="add_feed()">
@@ -14,9 +13,19 @@
     </form>
     
     <div class="collection">
-      <a href="#!" class="collection-item" ng-repeat="feed in feeds">{{feed.title}}<span class="new badge">{{feed.entries.length}}</span></a>
+      <a href="" class="collection-item" ng-repeat="feed in feeds" ng-click="feed_selected(feed)">{{feed.title}}<span class="new badge blue darken-3">{{feed.entries.length}}</span></a>
     </div>
   </div>
   <div class="col s9">
+    <h2><a href="{{feed.site_url}}">{{feed.title}}</a></h2>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li ng-repeat="entry in feed.entries" repeat-finished>
+        <div class="collapsible-header">{{entry.title}}</div>
+        <div class="collapsible-body flow-text">
+          <h3><a href="{{entry.entry_url}}">{{entry.title}}</a></h3>
+          <div ng-bind-html="entry.content"></div>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>

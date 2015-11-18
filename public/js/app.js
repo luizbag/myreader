@@ -1,4 +1,14 @@
-angular.module('app', ['app.controllers', 'app.services', 'ui.router'])
+angular.module('app', ['app.controllers', 'app.services', 'ui.router', 'ngSanitize'])
+  .directive('repeatFinished', ['$rootScope', function($rootScope) {
+    return {
+      link: function(scope, element, attrs) {
+        if(scope.$last && $rootScope.collapse !== 1) {
+          $('.collapsible').collapsible();
+          $rootScope.collapse = 1;
+        }
+      }
+    };
+  }])
   .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
     $urlRouterProvider.otherwise("/home/landing");

@@ -78,4 +78,9 @@ angular.module('app.controllers', ['angular-md5', 'app.services'])
       });
       $scope.url = '';
     };
+
+    $scope.feed_selected = function(feed) {
+      $scope.feed = feed;
+      $scope.$broadcast('dataloaded');
+    };
   }]);
